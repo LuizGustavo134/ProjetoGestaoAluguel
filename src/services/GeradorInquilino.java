@@ -37,10 +37,11 @@ public class GeradorInquilino {
             int gerarNome = random.nextInt(1, nomes.length);
             int exPredio = random.nextInt(1, predios.length);
             int exBloco = random.nextInt(1, blocos.length);
+            int Id_morador = random.nextInt(129,325) ;
             double aluguelPago = random.nextDouble(0, 2000);
             String nome = nomes[gerarNome];
             String predio = predios[exPredio];
             String bloco = blocos[exBloco];
 
-        Inquilino inquilino = new Inquilino(nome,predio,bloco,aluguelPago);
+        Inquilino inquilino = new Inquilino(nome,predio,bloco,aluguelPago,Id_morador);
         listaInquilinos.addInquilino(inquilino);  }}}

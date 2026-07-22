@@ -16,7 +16,8 @@ public class Main {
         gerador.gerarInquilinos(listaInquilinos);
 
         do {
-            System.out.println("(1)Consultar morardores (2)Pesquisar morador 3 sair");
+            System.out.println("(1)Consultar morardores (2) Pesquisa morador");
+            System.out.println("(3) Altera dados (4) Sair");
             // Inicia a caça ao erros
             try {
                 int opcao = scan.nextInt();
@@ -24,21 +25,25 @@ public class Main {
             if (opcao == 1) {
                 // Exibi a lista gerada
                 listaInquilinos.exibirInquilinos();
+                scan.nextLine();
                 loop = opcao;
             } else if (opcao == 2) {
                 //Pesquisa o morador
-                System.out.println("infomorme o nome do morador: ");
-                String nome = scan.nextLine().trim();
-                listaInquilinos.pesquisarPornome(nome);
+                listaInquilinos.pesquisaMorador();
                 loop = opcao;
-            } else if (opcao == 3) {
+                scan.nextLine();
+            } else if (opcao == 3) { //  alterar/remover
+                // a finalizar
+                loop = opcao;
+                scan.nextLine();
+            } else if (opcao == 4) {
                 // Fecha o programa
                 System.out.println("Fechando Programa....");
                 loop = opcao;
             } else{
                    System.out.println("digite uma opção valida!");
                 }
-        // Trantando completamente o erro sem interromper o loop
+        // Tranta completamente o erro sem interromper o loop
         }catch (InputMismatchException e){
                 scan.nextLine();
                 //Alerta e guia o usuário
@@ -49,6 +54,7 @@ public class Main {
                 System.out.println("##### ↓ Conferindo erro ↓ #####");
                 System.out.flush(); // força a impreção imediata
                 // Informa onde o erro ocorreu
+                // sem quebrar
                 e.printStackTrace(System.out); // defini a ordem da saida
                 System.out.flush();
 

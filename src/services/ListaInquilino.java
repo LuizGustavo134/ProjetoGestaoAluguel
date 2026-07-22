@@ -2,10 +2,13 @@
 
         import java.util.ArrayList;
         import java.util.List;
+        import java.util.Scanner;
+
         import src.entities.Inquilino;
 
         public class ListaInquilino {
             List<Inquilino> Inquilinos = new ArrayList<>();
+            Scanner scan = new Scanner(System.in);
             public ListaInquilino(){}
             public ListaInquilino(List<Inquilino> Inquilinos) {
                 this.Inquilinos = Inquilinos;
@@ -18,14 +21,34 @@
                 for (Inquilino inquilino : Inquilinos) {
                     System.out.println(inquilino);}}
 
-            public void pesquisarPornome(String nome){
+            public void pesquisaMorador(){
+                System.out.println("infomorme o nome do morador ou ID ");
+                System.out.println("*Para nome digite qualquer numero*");
+                System.out.println("ID: ");
+                 int Id_Morador = scan.nextInt();
+                scan.nextLine();
+                System.out.println("*caso tenha informado id aperte enter*");
+                System.out.printf("Nome completo: ");
+                String nome = scan.nextLine();
+
                 for (Inquilino inquilino : Inquilinos){
-                    if (inquilino.getNome().trim().equalsIgnoreCase(nome)){
-                        System.out.println("############"+" "+"dados solicitados"+" "+"###########");
+                    if (inquilino.getId_morador() == Id_Morador){
                         System.out.println(inquilino);
-                        System.out.println("####################################");
+                    }else if  (inquilino.getNome().trim().equalsIgnoreCase(nome) && (!(nome == null)) ){
+                        System.out.println(inquilino);
                     }
                 }
 
+            } public void AlteraValor(){ // a finalizar
+                System.out.println("infomorme o ID do morador: ");
+                int Id_Morador = scan.nextInt();
+                for (Inquilino inquilino : Inquilinos){
+                    if (inquilino.getId_morador() == Id_Morador){
+                        System.out.println(inquilino);
+                        System.out.println("O que deseja alterar? ");
+                        System.out.println("(1) nome (2) Predio (3) bloco");
+                    }
+                }
             }
         }
+
