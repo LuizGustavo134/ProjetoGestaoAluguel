@@ -29,7 +29,7 @@
             this.Id_morador = Id_morador;
         }
 
-        public String definir_status(){ //verifica o status do morador
+        public String definir_status(){
             if (aluguelPago > 900 || aluguelPago == 900){
                 aluguelStatus = AVISO1;
             } else{
